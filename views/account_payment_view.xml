@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="inmobiliaria_view_account_payment_form" model="ir.ui.view">
+            <field name="name">inmobiliaria.ccount.payment.form</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account.view_account_payment_form"/>
+            <field name="arch" type="xml">
+                <field name="communication" position="after">
+                    <field name="sale_id"/>
+                    <field name="descripcion"/>
+                    <field name="fecha_boleta"/>
+                </field>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

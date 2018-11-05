@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="inmobiliaria.asistente_reporte_fha" model="ir.ui.view">
+            <field name="name">inmobiliaria.asistente_reporte_fha</field>
+            <field name="model">inmobiliaria.asistente_reporte_fha</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Ingrese datos a cotizar">
+                    <group>
+                        <group>
+                            <!-- <field name="lead_id"/> -->
+                            <field name="precio_venta"/>
+                            <field name="enganche"/>
+                            <field name="plazo_meses"/>
+                        </group>
+                        <group>
+                            <field name="tasa_interes_conjunta"/>
+                            <field name="prima_contra_incendios"/>
+                            <field name="relacion_cuota_ingreso_maxima"/>
+                        </group>
+                        <group>
+                            <field name="tipo_escrituracion"/>
+                            <field name="gasto_escrituracion"/>
+                            <field name="otros"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="print_report" string="Reporte" type="object" class="oe_highlight"/>
+                        o
+                        <button special="cancel" string="Cancel" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="window_reporte_fha" name="Cotizacion FHA" res_model="inmobiliaria.asistente_reporte_fha" src_model="crm.lead" view_mode="form" target="new"/>
+        <menuitem action="window_reporte_fha" id="menu_asistente_reporte_fha" parent="crm.crm_menu_report"/>
+        <report id="action_reporte_fha" model="inmobiliaria.asistente_reporte_fha" string="Cotizacion FHA" report_type="qweb-pdf" name="inmobiliaria.reporte_fha" file="inmobiliaria.reporte_fha"/>
+
+    </data>
+</odoo>

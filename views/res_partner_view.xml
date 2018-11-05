@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="inmobiliaria_view_partner_form" model="ir.ui.view">
+            <field name="name">inmobiliaria.res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="lang" position="after">
+                    <field name="estado_civil"/>
+                    <field name="nacionalidad"/>
+                    <!-- <field name="profersion"/> -->
+                    <field name="dpi"/>
+                    <field name="fecha_nacimiento"/>
+                    <field name="edad"/>
+                    <field name="direccion_correspondencia"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>

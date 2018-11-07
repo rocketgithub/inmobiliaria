@@ -169,6 +169,15 @@
                             <td style="border: 1px solid black;" colspan="2"><b>Plazo en Meses:</b></td>
                             <td style="border: 1px solid black;"><b><span t-esc="data['plazo_meses']"/></b></td>
                         </tr>
+                        <tr>
+                            <td style="border: 1px solid black;" colspan="2"><b>Ingresos Netos Mínimos:</b></td>
+                            <t t-foreach="cuota_nivelada(data)" t-as="cuota">
+                                <t t-if="cuota['mes'] == 1">
+                                    <t t-set="total_cuota" t-value="cuota['total_cuota_mensual'] / (data['relacion_cuota_ingreso_maxima'] / 100)"/>/>
+                                    <td style="border: 1px solid black;"><b><span t-esc="total_cuota" t-options='{"widget":"float","precision":2}'/></b></td>
+                                </t>
+                            </t>
+                        </tr>
                     </table>
                     <br/>
                     <br/>
@@ -202,19 +211,14 @@
                             <t t-set="iusi" t-value="((data['precio_venta'] / 1.12) * 0.09) / 12"/>
                         </t>
                         <t t-set="seguro_contra_incendio" t-value="((monto_construccion * data['prima_contra_incendios']) / 12) /100"/>
-                        <tr t-foreach="range(data['plazo_meses'])" t-as="l">
-                            <t t-set="pago_capital" t-value="0"/>
-                            <t t-set="pago_interes" t-value="0"/>
-                            <t t-set="mes" t-value="mes+1"/>
-                            <t t-set="total_cuota_mensual" t-value="pago_capital + pago_interes + seguro_contra_incendio + iusi"/>
-                            <t t-set="saldo_capital" t-value="saldo_capital - pago_capital"/>
-                            <td style="border: 1px solid black;"><span t-esc="mes"/></td>
-                            <td style="text-align:right;border: 1px solid black;"></td>
-                            <td style="text-align:right;border: 1px solid black;"></td>
-                            <td style="text-align:right;border: 1px solid black;">Q.<span t-esc="seguro_contra_incendio" t-options='{"widget":"float","precision":2}'/></td>
-                            <td style="text-align:right;border: 1px solid black;">Q.<span t-esc="iusi" t-options='{"widget":"float","precision":2}'/></td>
-                            <td style="text-align:right;border: 1px solid black;">Q.<span t-esc="total_cuota_mensual" t-options='{"widget":"float","precision":2}'/></td>
-                            <td style="text-align:right;border: 1px solid black;">Q.<span t-esc="saldo_capital" t-options='{"widget":"float","precision":2}'/></td>
+                        <tr t-foreach="cuota_nivelada(data)" t-as="cuota">
+                            <td style="border: 1px solid black;"><span t-esc="cuota['mes']"/></td>
+                            <td style="text-align:right;border: 1px solid black;">Q.<span t-esc="cuota['pago_capital']" t-options='{"widget":"float","precision":2}'/></td>
+                            <td style="text-align:right;border: 1px solid black;">Q.<span t-esc="cuota['pago_interes']" t-options='{"widget":"float","precision":2}'/></td>
+                            <td style="text-align:right;border: 1px solid black;">Q.<span t-esc="cuota['seguro_contra_incendio']" t-options='{"widget":"float","precision":2}'/></td>
+                            <td style="text-align:right;border: 1px solid black;">Q.<span t-esc="cuota['iusi']" t-options='{"widget":"float","precision":2}'/></td>
+                            <td style="text-align:right;border: 1px solid black;">Q.<span t-esc="cuota['total_cuota_mensual']" t-options='{"widget":"float","precision":2}'/></td>
+                            <td style="text-align:right;border: 1px solid black;">Q.<span t-esc="cuota['saldo_capital']" t-options='{"widget":"float","precision":2}'/></td>
                         </tr>
                     </table>
                 </div>

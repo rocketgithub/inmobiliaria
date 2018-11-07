@@ -7,10 +7,9 @@
             <field name="arch" type="xml">
                 <field name="analytic_account_id" position="after">
                     <field name="lead_id"/>
+                    <field name="fecha_inicio"/>
                     <field name="banco_id"/>
                 </field>
             </field>
         </record>
-
-
 </odoo>

@@ -13,7 +13,7 @@ class Lead(models.Model):
     tipo_cambio = fields.Float('Tipo de cambio')
     tasa_interes_anual = fields.Float('Tasa de interés anual')
     plazo_meses = fields.Integer('Plazo meses')
-    inmueble_id = fields.Many2one('product.template',string= 'Inmbueble')
+    inmueble_id = fields.Many2one('product.template',string= 'Inmueble')
     parqueo_ids = fields.Many2many('product.product',string= 'Parqueo')
     total_inmueble = fields.Float('Total inmueble')
     # precio_parqueo = fields.Float('Precio parqueo')

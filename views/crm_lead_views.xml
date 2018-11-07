@@ -11,13 +11,13 @@
                     <group>
                         <group>
                             <field name="inmueble_id"/>
+                            <field name="bodega_id"/>
                             <field name="precio_metros_cuadrados"/>
                             <field name="total_inmueble"/>
                         </group>
                         <group>
                             <field name="parqueo_ids" widget="many2many_tags"/>
                             <field name="numero_parqueos"/>
-                            <!-- <field name="precio_parqueo"/> -->
                             <field name="total_parqueo"/>
                         </group>
                         <group>
@@ -31,13 +31,13 @@
                             <field name="enganche_total"/>
                             <field name="cuota_enganche"/>
                             <field name="saldo_financiar"/>
+                            <field name="plazo_meses"/>
                         </group>
                         <group>
                             <field name="gastos_escrituracion"/>
                             <field name="reserva"/>
                             <field name="tipo_cambio"/>
                             <field name="tasa_interes_anual"/>
-                            <field name="plazo_meses"/>
                         </group>
                     </group>
                 </page>

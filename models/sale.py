@@ -22,3 +22,4 @@ class SaleOrder(models.Model):
 
     lead_id = fields.Many2one('crm.lead','Oportunidad')
     banco_id = fields.Many2one('account.journal','Banco')
+    fecha_inicio = fields.Date('Fecha de inicio')

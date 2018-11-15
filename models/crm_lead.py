@@ -13,7 +13,7 @@ class Lead(models.Model):
     tipo_cambio = fields.Float('Tipo de cambio')
     tasa_interes_anual = fields.Float('Tasa de interés anual')
     plazo_meses = fields.Integer('Plazo meses')
-    inmueble_id = fields.Many2one('product.template',string= 'Inmueble')
+    inmueble_id = fields.Many2one('product.product',string= 'Inmueble')
     parqueo_ids = fields.Many2many('product.product',string= 'Parqueo')
     total_inmueble = fields.Float('Total inmueble')
     # precio_parqueo = fields.Float('Precio parqueo')
@@ -43,10 +43,8 @@ class Lead(models.Model):
                 total_parqueo += parqueo.list_price
             self.numero_parqueos = cantidad_parqueos
             self.total_parqueo = total_parqueo * cantidad_parqueos
-        if self.total_parqueo:
-            self.iva = (self.total_parqueo + self.total_inmueble) *0.12
-        if self.iva:
-            self.total = self.iva + (self.total_parqueo + self.total_inmueble)
+        self.iva = (self.total_parqueo + self.total_inmueble) * 0.12
+        self.total = self.iva + (self.total_parqueo + self.total_inmueble)
         if self.total and self.gastos_escrituracion:
             self.gran_total = self.gastos_escrituracion + self.total
         if self.reserva and self.gran_total:

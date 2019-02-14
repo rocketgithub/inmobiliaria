@@ -10,6 +10,9 @@
                 <field name="communication" position="after">
                     <field name="sale_id"/>
                     <field name="descripcion"/>
+                    <field name="cheque"/>
+                    <field name="boleta"/>
+                    <field name="descripcion"/>
                     <field name="fecha_boleta"/>
                 </field>
             </field>

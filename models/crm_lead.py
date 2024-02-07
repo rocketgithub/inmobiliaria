@@ -6,17 +6,16 @@ class Lead(models.Model):
     _inherit = "crm.lead"
 
     numero_parqueos = fields.Integer('Numero de parqueos')
-    precio_metros_cuadrados = fields.Float('Precio mt.2')
+    precio_metros_cuadrados = fields.Float('Precio mts.2')
     precio_parqueo = fields.Float('Precio parqueo')
-    gastos_escrituracion = fields.Float('Gastos de escrituración ')
+    gastos_escrituracion = fields.Float('Gastos de escrituración')
     reserva = fields.Float('Reserva')
-    tipo_cambio = fields.Float('Tipo de cambio')
+    #tipo_cambio = fields.Float('Tipo de cambio')
     tasa_interes_anual = fields.Float('Tasa de interés anual')
     plazo_meses = fields.Integer('Plazo meses')
-    inmueble_id = fields.Many2one('product.product',string= 'Inmueble')
-    parqueo_ids = fields.Many2many('product.product',string= 'Parqueo')
+    inmueble_id = fields.Many2one('product.product', string='Inmueble')
+    parqueo_ids = fields.Many2many('product.product', string='Parqueo')
     total_inmueble = fields.Float('Total inmueble')
-    # precio_parqueo = fields.Float('Precio parqueo')
     total_parqueo = fields.Float('Total parqueo')
     iva = fields.Float('IVA')
     total = fields.Float('Total')
@@ -26,10 +25,10 @@ class Lead(models.Model):
     cuota_enganche = fields.Float('Cuota enganche')
     saldo_financiar = fields.Float('Saldo a financiar')
     fecha_pactada_abonos = fields.Date('Fecha pactada de abonos')
-    bodega_id = fields.Many2one('product.product',string= 'Bodega')
+    bodega_id = fields.Many2one('product.product', string='Bodega')
     unico_pago = fields.Float('Unico pago')
 
-    @api.onchange('inmueble_id','parqueo_ids','gastos_escrituracion','reserva','tipo_cambio','tasa_interes_anual','plazo_meses')
+    @api.onchange('inmueble_id', 'parqueo_ids', 'gastos_escrituracion', 'reserva', 'tasa_interes_anual', 'plazo_meses')
     def onchange_total_inmueble(self):
         if self.inmueble_id:
             if self.inmueble_id.metros_cuadrados > 0:
@@ -42,7 +41,7 @@ class Lead(models.Model):
                 cantidad_parqueos += 1
                 total_parqueo += parqueo.list_price
             self.numero_parqueos = cantidad_parqueos
-            self.total_parqueo = total_parqueo * cantidad_parqueos
+            self.total_parqueo = total_parqueo
         self.iva = (self.total_parqueo + self.total_inmueble) * 0.12
         self.total = self.iva + (self.total_parqueo + self.total_inmueble)
         if self.total and self.gastos_escrituracion:

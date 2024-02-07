@@ -1,11 +1,7 @@
 # -*- encoding: utf-8 -*-
 
-from openerp import models, fields, api, _
-from openerp.exceptions import UserError, ValidationError
-import time
-import xlwt
-import base64
-import io
+from odoo import models, fields, api, _
+from odoo.exceptions import UserError, ValidationError
 import logging
 
 class AsistenteReporteFha(models.TransientModel):
@@ -22,7 +18,6 @@ class AsistenteReporteFha(models.TransientModel):
     gasto_escrituracion = fields.Float('Gastos de Escrituración')
     otros = fields.Float('Otros')
 
-    @api.multi
     def print_report(self):
         data = {
              'ids': [],

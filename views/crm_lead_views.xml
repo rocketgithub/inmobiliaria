@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <odoo>
 
-    <record id="inmobiliaria_crm_case_form_view_oppor" model="ir.ui.view">
-        <field name="name">inmobiliaria.crm.lead.form.opportunity</field>
+    <record id="crm_lead_view_form" model="ir.ui.view">
+        <field name="name">crm.lead.form.inherit.inmobiliaria</field>
         <field name="model">crm.lead</field>
-        <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
         <field name="arch" type="xml">
-            <page name="lead" position="after">
+            <notebook position="inside">
                 <page name="inmobiliaria" string="Inmobiliaria">
                     <group>
                         <group>
@@ -21,10 +21,10 @@
                             <field name="total_parqueo"/>
                         </group>
                         <group>
-                            <field name="iva"/>
-                            <field name="total"/>
-                            <field name="gran_total"/>
-                            <field name="fecha_pactada_abonos"/>
+                            <field name="gastos_escrituracion"/>
+                            <field name="reserva"/>
+                            <!-- <field name="tipo_cambio"/> -->
+                            <field name="tasa_interes_anual"/>
                         </group>
                         <group>
                             <field name="enganche_reserva"/>
@@ -34,14 +34,14 @@
                             <field name="plazo_meses"/>
                         </group>
                         <group>
-                            <field name="gastos_escrituracion"/>
-                            <field name="reserva"/>
-                            <field name="tipo_cambio"/>
-                            <field name="tasa_interes_anual"/>
+                            <field name="iva"/>
+                            <field name="total"/>
+                            <field name="gran_total"/>
+                            <field name="fecha_pactada_abonos"/>
                         </group>
                     </group>
                 </page>
-            </page>
+            </notebook>
         </field>
     </record>
 

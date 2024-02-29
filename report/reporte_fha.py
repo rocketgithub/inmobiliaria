@@ -19,9 +19,9 @@ class ReporteFha(models.AbstractModel):
         else:
             ((data['precio_venta'] / 1.12) * 0.09) / 12
         saldo_capital_inicial = monto_financiar
-        for i in range(1,data['plazo_meses'] + 1):
-            pago_capital = numpy_financial.ppmt((data['tasa_interes_conjunta']/100) / 12,i,data['plazo_meses'],-monto_financiar)
-            pago_interes = numpy_financial.ipmt((data['tasa_interes_conjunta']/100) / 12,i,data['plazo_meses'],-monto_financiar)
+        for i in range(1,data['cantidad_cuotas_enganche'] + 1):
+            pago_capital = numpy_financial.ppmt((data['tasa_interes_conjunta']/100) / 12,i,data['cantidad_cuotas_enganche'],-monto_financiar)
+            pago_interes = numpy_financial.ipmt((data['tasa_interes_conjunta']/100) / 12,i,data['cantidad_cuotas_enganche'],-monto_financiar)
             total_cuota_mensual = pago_capital + pago_interes + seguro_contra_incendio + iusi
             if i == 1:
                 saldo_capital = saldo_capital_inicial - pago_capital

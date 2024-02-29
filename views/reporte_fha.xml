@@ -80,7 +80,7 @@
                             <tr>
                                 <td></td>
                                 <td style="border: 1px solid black;"><b>Plazo en Meses:</b></td>
-                                <td style="border: 1px solid black;background-color:#00cc00;"><b>Q.<span t-esc="data['plazo_meses']" t-options='{"widget":"float","precision":2}'/></b></td>
+                                <td style="border: 1px solid black;background-color:#00cc00;"><b>Q.<span t-esc="data['cantidad_cuotas_enganche']" t-options='{"widget":"float","precision":2}'/></b></td>
                                 <td></td>
                                 <td style="border: 1px solid black;"><b>Otros:</b></td>
                                 <td style="border: 1px solid black;background-color:#00cc00;"><b>Q.<span t-esc="data['otros']" t-options='{"widget":"float","precision":2}'/></b></td>
@@ -166,7 +166,7 @@
                             </tr>
                             <tr>
                                 <td style="border: 1px solid black;" colspan="2"><b>Plazo en Meses:</b></td>
-                                <td style="border: 1px solid black;"><b><span t-esc="data['plazo_meses']"/></b></td>
+                                <td style="border: 1px solid black;"><b><span t-esc="data['cantidad_cuotas_enganche']"/></b></td>
                             </tr>
                             <tr>
                                 <td style="border: 1px solid black;" colspan="2"><b>Ingresos Netos Mínimos:</b></td>

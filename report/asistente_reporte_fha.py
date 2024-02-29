@@ -10,7 +10,7 @@ class AsistenteReporteFha(models.TransientModel):
     # lead_id = fields.Many2one("crm.lead","Oportunidad")
     precio_venta = fields.Float('Precio de venta')
     enganche = fields.Float('Enganche')
-    plazo_meses = fields.Integer('Plazo en meses')
+    cantidad_cuotas_enganche = fields.Integer('Plazo en meses pagar enganche')
     tasa_interes_conjunta = fields.Float('Tasa de Interes Conjunta')
     prima_contra_incendios = fields.Float('Prima del Seguro Contra Incendios')
     relacion_cuota_ingreso_maxima = fields.Float('Relación Cuota - Ingresos Máxima')

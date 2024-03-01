@@ -13,7 +13,7 @@
                             <!-- <field name="lead_id"/> -->
                             <field name="precio_venta"/>
                             <field name="enganche"/>
-                            <field name="plazo_meses"/>
+                            <field name="cantidad_cuotas_enganche"/>
                         </group>
                         <group>
                             <field name="tasa_interes_conjunta"/>

@@ -12,9 +12,9 @@
     'website': "http://www.aquih.com",
 
     'category': 'Uncategorized',
-    'version': '0.2',
+    'version': '0.3',
 
-    'depends': ['base','crm','sale','sale_crm'],
+    'depends': ['base', 'crm', 'sale', 'sale_crm', 'l10n_gt_extra'],
 
     'data': [
         'views/crm_lead_views.xml',

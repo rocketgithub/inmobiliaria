@@ -172,7 +172,7 @@
                                 <td style="border: 1px solid black;" colspan="2"><b>Ingresos Netos Mínimos:</b></td>
                                 <t t-foreach="cuota_nivelada(data)" t-as="cuota">
                                     <t t-if="cuota['mes'] == 1">
-                                        <t t-set="total_cuota" t-value="cuota['total_cuota_mensual'] / (data['relacion_cuota_ingreso_maxima'] / 100)"/>/>
+                                        <t t-set="total_cuota" t-value="cuota['total_cuota_mensual'] / (data['relacion_cuota_ingreso_maxima'] / 100) if data['relacion_cuota_ingreso_maxima'] else 0"/>
                                         <td style="border: 1px solid black;"><b><span t-esc="total_cuota" t-options='{"widget":"float","precision":2}'/></b></td>
                                     </t>
                                 </t>

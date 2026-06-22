@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
+
     <!-- base structure of product.template, common with product.product -->
     <record id="inmobiliaria_product_template_only_form_view" model="ir.ui.view">
         <field name="name">inmobiliaria.product.template.product.form</field>
@@ -21,6 +21,4 @@
         </field>
     </record>
 
-
-    </data>
 </odoo>

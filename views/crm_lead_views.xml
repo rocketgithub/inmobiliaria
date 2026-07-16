@@ -41,7 +41,7 @@
                             <field name="iva"/>
                             <field name="total"/>
                             <field name="gran_total"/>
-                            <!--<field name="fecha_pactada_abonos"/>-->
+                            <field name="fecha_pactada_abonos"/>
                         </group>
                     </group>
                 </page>

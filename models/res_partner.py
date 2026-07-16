@@ -10,7 +10,7 @@ class Partner(models.Model):
             ('viudo', 'Viudo(a)'),
             ('divorciado', 'Divorciado')])
     nacionalidad = fields.Many2one('res.country', 'Nacionalidad')
-    #dpi = fields.Char('DPI')
+    dpi = fields.Char('DPI')
     fecha_nacimiento = fields.Date('Fecha nacimiento')
     edad = fields.Integer(string='Edad')
     direccion_correspondencia = fields.Char('Direccion de correspondencia')

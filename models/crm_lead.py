@@ -32,10 +32,10 @@ class Lead(models.Model):
     cuota_enganche = fields.Float('Cuota enganche')
     cantidad_cuotas_enganche = fields.Integer('Plazo meses pagar enganche') # plazo_meses
 
-    #fecha_pactada_abonos = fields.Date('Fecha pactada de inicio de abonos')
+    fecha_pactada_abonos = fields.Date('Fecha pactada de inicio de abonos')
     #bodega_id = fields.Many2one('product.product', string='Bodega')
     #precio_parqueo = fields.Float('Precio parqueo')
-    #tipo_cambio = fields.Float('Tipo de cambio')
+    tipo_cambio = fields.Float('Tipo de cambio')
 
     @api.onchange('inmueble_id', 'parqueo_ids', 'gastos_escrituracion', 'reserva_total', 'tasa_interes_anual', 'cantidad_cuotas_enganche', 'cantidad_cuotas_reserva')
     def onchange_total_inmueble(self):
